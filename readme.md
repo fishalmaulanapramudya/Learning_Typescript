@@ -1,77 +1,111 @@
-# login_ts
+# Learning TypeScript
 
-Panduan singkat untuk mempersiapkan dan menjalankan proyek `login_ts` (TypeScript + Express).
+Project ini dibuat sebagai media belajar saya untuk memahami dan mempraktikkan TypeScript secara lebih serius, khususnya dalam pembuatan aplikasi backend dengan Express.
 
-**Prasyarat:**
-- Node.js v18+ dan npm/yarn/pnpm terpasang
-- Versi TypeScript dan dev-dependencies sudah ada di `package.json`
+## Tujuan Project
 
-**Instalasi dependensi:**
+Repository ini saya gunakan untuk belajar:
+
+- dasar-dasar TypeScript
+- penulisan tipe data dan interface
+- struktur project yang rapi
+- Express.js dengan TypeScript
+- autentikasi dan manajemen user
+- pengelolaan konfigurasi environment
+- koneksi ke database PostgreSQL
+
+## Deskripsi
+
+Project ini merupakan aplikasi sederhana berbasis backend yang berfokus pada proses login, user management, dan penerapan konsep TypeScript dalam aplikasi nyata. Project ini masih dalam tahap pembelajaran dan pengembangan, sehingga struktur dan fungsinya terus disempurnakan sesuai pemahaman yang berkembang.
+
+## Tech Stack
+
+- Node.js
+- TypeScript
+- Express
+- PostgreSQL
+- bcrypt / argon2
+- JWT
+- dotenv
+- tsx
+
+## Prasyarat
+
+Pastikan perangkat Anda sudah memiliki:
+
+- Node.js 18+
+- npm
+- PostgreSQL (jika fitur database digunakan)
+
+## Instalasi
+
 ```bash
 npm install
-# atau gunakan yarn/pnpm jika diinginkan
 ```
 
-**Inisialisasi TypeScript (jika belum):**
-```bash
-npx tsc --init
-```
+## Menjalankan Project
 
-Catatan: repositori ini sudah menyertakan `typescript` di `devDependencies`.
-
-**Menjalankan pengembangan:**
 ```bash
 npm run dev
 ```
 
-Perintah `dev` menjalankan `tsx src/server.ts` sesuai `package.json`.
+## Environment
 
-**Membangun untuk produksi:**
-1. Transpile TypeScript ke JavaScript:
-```bash
-npx tsc
-```
-2. Jalankan hasil build (sesuaikan jalur output di `tsconfig.json`, contoh `dist`):
-```bash
-node dist/server.js
-```
+Buat file `.env` dengan konfigurasi seperti berikut:
 
-Jika ingin, tambahkan skrip `build` dan `start` ke `package.json`:
-```json
-"scripts": {
-	"build": "tsc",
-	"start": "node dist/server.js",
-	"dev": "tsx src/server.ts"
-}
-```
-
-**Variabel lingkungan (ENV):**
-- `PORT` — port tempat server berjalan (default 3000)
-- `JWT_SECRET` — secret untuk tanda tangan token JWT
-- `DB_URL` — (opsional) URL database jika diperlukan
-
-Contoh file `.env`:
 ```env
 PORT=3000
-JWT_SECRET=changeme_supersecret
-# DB_URL=postgres://user:pass@localhost:5432/dbname
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=your_user
+DB_PASSWORD=your_password
+DB_NAME=your_database
+JWT_SECRET=your_secret_key
 ```
 
-Catatan: proyek saat ini belum memasang `dotenv`. Jika ingin memuat `.env`, tambahkan `dotenv` dan panggil `require('dotenv').config()` pada titik masuk.
+## Struktur Project
 
-**Dependensi utama:**
-- `express` — web framework
-- `bcrypt` — hashing password
-- `jsonwebtoken` — JWT untuk otentikasi
+```bash
+.
+├── public/
+├── src/
+│   ├── app.ts
+│   ├── config/
+│   ├── controllers/
+│   ├── interfaces/
+│   ├── models/
+│   ├── repositories/
+│   ├── routes/
+│   ├── services/
+│   └── types/
+├── .env.example
+├── .gitignore
+├── bug.md
+├── package.json
+├── readme.md
+├── server.ts
+├── tsconfig.json
+└── static/
+```
 
-**Pengembangan & kontribusi:**
-- Gunakan pull request kecil dan deskriptif.
-- Tambahkan skrip `test` jika menambahkan tes.
+## Catatan
 
-**Kontak / Catatan:**
-Jika butuh saya tambahkan skrip `build`/`start` otomatis atau konfigurasi `.env`/`dotenv`, beri tahu saya supaya saya perbarui `package.json` juga.
+Project ini bukan project komersial, melainkan project pembelajaran personal saya untuk memahami TypeScript secara praktis. Saya akan terus menambah fitur, memperbaiki struktur, dan meningkatkan kualitas aplikasi seiring bertambahnya pemahaman.
 
+## Roadmap Belajar
 
-buat input password generator = npm install prompt-sync
-npm install --save-dev @types/prompt-sync
+- memahami type system TypeScript
+- membuat API dengan Express + TypeScript
+- membangun autentikasi user
+- menambahkan validasi dan error handling
+- mengintegrasikan database
+- menambahkan testing dan deployment
+
+## Penulis
+
+- Fishal Maulana
+
+---
+
+Repository ini dibuat untuk proses belajar dan eksplorasi TypeScript secara nyata dalam sebuah aplikasi backend.
 
