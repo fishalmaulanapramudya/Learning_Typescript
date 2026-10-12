@@ -1,0 +1,251 @@
+@media (min-width: 300px){
+    .main{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px){
+    .login-form{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+
+:root {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(252, 252, 252);
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background: #e0e5ec;
+}
+.atas{
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+    border: none;
+    align-items: center;
+   
+}
+
+.atas nav ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+
+}
+
+.atas nav ul a{
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    text-align: center;
+}
+
+
+.login-form{
+    width: 320px;
+    padding: 35px;
+    border-radius: 25px;
+    background: #e0e5ec;
+    box-shadow: 12px 12px 24px #b8bec7;
+    margin: 20px;
+}
+
+.login-form h1{
+    text-align: center;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.login-form input{
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    background: #e0e5ec;
+    box-shadow: 6px 6px 10px #b8bec7;
+    font-size: 15px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.login-form button{
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 15px;
+    background: #e0e5ec;
+    cursor: pointer;
+    font-weight: bold;
+    color: #555;
+    box-shadow: 6px 6px 12px #b8bec7;
+    transition: .2s;
+}
+
+.login-form button:active{
+    box-shadow: inset 6px 6px 12px #b8bec7;
+}
+
+.card-dashboard p{
+    margin-left: 5px;
+    font-size: 16px;
+    line-height: 1.6;
+    
+}
+
+.card-dashboard h1{
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.navigasi {
+    width: 100%;
+    height: 50px;
+    padding: 20px;
+    border: none;
+    margin: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.navigasi a{
+    margin: 30px;
+    color: rgb(17, 17, 17);
+    font-weight: 600;
+    text-decoration: none;
+}
+.navigasi a:hover{
+    color: #e0e5ec;
+    background-color: rgb(19, 19, 19);
+    padding: 5px;
+    border-radius: 5px;
+}
+.main{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    margin: auto;
+    padding: auto;
+
+}
+.card-dashboard{
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    height: 300px;
+    border: none;
+    background-color: #dac23d;
+    gap: 20px;
+    border-radius: 5px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: auto;
+    cursor: pointer;
+}
+
+.produk{
+    width: 400px;
+    height: 1600px;
+    padding: 20px;
+    margin: 20px;
+    background-color: #303030;
+    box-sizing: border-box;
+    scrollbar-width: auto;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    
+}
+.baklava{
+    width: 300px;
+    height: 300px;
+    background-color: #dac23d;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+
+.baklava img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.fresh_bread{
+    width: 300px;
+    height: 300px;
+    background-color: #dac23d;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+
+.fresh_bread img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.olive_oil{
+    width: 300px;
+    height: 300px;
+    background-color: #dac23d;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+
+.olive_oil img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.sourdough_bread{
+    width: 300px;
+    height: 300px;
+    background-color: #dac23d;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+
+.sourdough_bread img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.isi{
+    margin: 20px;
+    padding: 20px;
+}
+
