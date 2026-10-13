@@ -3,22 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
+    <title>Login</title>
     <link rel="stylesheet" href="/css/style/hiasan.css">
 </head>
-<body>
-    <div class="login-form">
-        <h1>Login</h1>
-        <form id="loginform" action="/api/login" method="POST">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <br>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <br>
-            <button type="submit">Login</button>
+<body class="login-page">
+    <div class="glass-panel auth-card">
+        <div class="auth-header">
+            <div class="brand-badge">S</div>
+            <div>
+                <p class="eyebrow">School System</p>
+                <h1>Login</h1>
+            </div>
+        </div>
+
+        <form id="loginform" class="auth-form" action="/api/login" method="POST">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Masukkan username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Masukkan password" required>
+
+            <button type="submit">Masuk</button>
         </form>
-        <p id="message"></p>
+
+        <p id="message" class="message-box success">Gunakan akun admin untuk mencoba masuk.</p>
     </div>
+
+    <script>
+        const form = document.getElementById('loginform');
+        const messageBox = document.getElementById('message');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const payload = {
+                username: document.getElementById('username').value.trim(),
+                password: document.getElementById('password').value
+            };
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+
+                if (!response.ok || !result.success) {
+                    throw new Error(result.message || 'Login gagal.');
+                }
+
+                const token = result.data?.token;
+                if (token) {
+                    localStorage.setItem('token', token);
+                }
+
+                messageBox.textContent = 'Login berhasil, mengarahkan ke dashboard...';
+                messageBox.className = 'message-box success';
+                window.location.href = '/dashboard';
+            } catch (error) {
+                messageBox.textContent = error.message || 'Terjadi kesalahan saat login.';
+                messageBox.className = 'message-box error';
+            }
+        });
+    </script>
 </body>
 </html>

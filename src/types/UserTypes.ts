@@ -22,3 +22,8 @@ export interface PublicUser {
     username: string;
     email: string;
 }
+
+export interface LoginUserDTO {
+    username: string;
+    password: string;
+}

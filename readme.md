@@ -1,31 +1,27 @@
-# Learning TypeScript
+# Learning TypeScript - School Dashboard
 
-Project ini dibuat sebagai media belajar saya untuk memahami dan mempraktikkan TypeScript secara lebih serius, khususnya dalam pembuatan aplikasi backend dengan Express.
+Project ini adalah aplikasi web sekolah berbasis TypeScript dan Express yang digunakan untuk belajar arsitektur backend yang rapi, autentikasi JWT, database PostgreSQL, serta CRUD data siswa.
 
-## Tujuan Project
+## Fitur Utama
 
-Repository ini saya gunakan untuk belajar:
-
-- dasar-dasar TypeScript
-- penulisan tipe data dan interface
-- struktur project yang rapi
-- Express.js dengan TypeScript
-- autentikasi dan manajemen user
-- pengelolaan konfigurasi environment
-- koneksi ke database PostgreSQL
-
-## Deskripsi
-
-Project ini merupakan aplikasi sederhana berbasis backend yang berfokus pada proses login, user management, dan penerapan konsep TypeScript dalam aplikasi nyata. Project ini masih dalam tahap pembelajaran dan pengembangan, sehingga struktur dan fungsinya terus disempurnakan sesuai pemahaman yang berkembang.
+- Login admin dengan autentikasi JWT
+- Middleware proteksi untuk route yang memerlukan login
+- Dashboard admin dengan desain glassmorphism
+- CRUD data siswa (create, read, update, delete)
+- Validasi input di backend
+- Password hashing menggunakan bcrypt
+- PostgreSQL sebagai database utama
+- Struktur project berbasis layering: route -> controller -> service -> repository
 
 ## Tech Stack
 
 - Node.js
 - TypeScript
-- Express
+- Express.js
 - PostgreSQL
-- bcrypt / argon2
-- JWT
+- PostgreSQL client (`pg`)
+- JWT (`jsonwebtoken`)
+- Password hashing (`bcrypt`)
 - dotenv
 - tsx
 
@@ -35,7 +31,7 @@ Pastikan perangkat Anda sudah memiliki:
 
 - Node.js 18+
 - npm
-- PostgreSQL (jika fitur database digunakan)
+- PostgreSQL yang berjalan di lokal
 
 ## Instalasi
 
@@ -43,15 +39,9 @@ Pastikan perangkat Anda sudah memiliki:
 npm install
 ```
 
-## Menjalankan Project
+## Setup Environment
 
-```bash
-npm run dev
-```
-
-## Environment
-
-Buat file `.env` dengan konfigurasi seperti berikut:
+Buat file `.env` di root project dengan konfigurasi berikut:
 
 ```env
 PORT=3000
@@ -61,23 +51,85 @@ DB_USER=your_user
 DB_PASSWORD=your_password
 DB_NAME=your_database
 JWT_SECRET=your_secret_key
+JWT_EXPIRES_IN=1h
 ```
+
+Contoh konfigurasi yang sudah dipakai dalam project:
+
+```env
+PORT=3000
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=fishal
+DB_PASSWORD=Qqf577nk99@123
+DB_NAME=belajar_sql
+JWT_SECRET=school-secret-key
+JWT_EXPIRES_IN=1h
+```
+
+## Menjalankan Project
+
+```bash
+npm run dev
+```
+
+Setelah server berjalan, buka:
+
+- http://localhost:3000/login
+- http://localhost:3000/dashboard
+
+## Default Login
+
+Akun demo yang sudah dibuat otomatis oleh database:
+
+- Username: `admin`
+- Password: `admin123`
+
+## API Endpoint
+
+### Auth
+
+- `POST /api/login`
+- `POST /api/register`
+- `POST /api/logout`
+
+### User
+
+- `GET /api/users`
+- `GET /api/users/:id`
+- `PUT /api/users/:id`
+- `DELETE /api/users/:id`
+
+### Student
+
+- `GET /api/students`
+- `POST /api/students`
+- `PUT /api/students/:id`
+- `DELETE /api/students/:id`
+
+Semua endpoint siswa dan user management dilindungi dengan JWT.
 
 ## Struktur Project
 
 ```bash
 .
 ├── public/
+│   ├── css/
+│   ├── js/
+│   ├── dashboard.html
+│   └── login.html
 ├── src/
 │   ├── app.ts
 │   ├── config/
 │   ├── controllers/
 │   ├── interfaces/
+│   ├── middleware/
 │   ├── models/
 │   ├── repositories/
 │   ├── routes/
 │   ├── services/
 │   └── types/
+├── .env
 ├── .env.example
 ├── .gitignore
 ├── bug.md
@@ -88,18 +140,15 @@ JWT_SECRET=your_secret_key
 └── static/
 ```
 
-## Catatan
+## Catatan Project
 
-Project ini bukan project komersial, melainkan project pembelajaran personal saya untuk memahami TypeScript secara praktis. Saya akan terus menambah fitur, memperbaiki struktur, dan meningkatkan kualitas aplikasi seiring bertambahnya pemahaman.
+Project ini dibuat untuk kebutuhan pembelajaran dan eksperimen implementasi backend yang lebih nyata, dengan fokus pada:
 
-## Roadmap Belajar
-
-- memahami type system TypeScript
-- membuat API dengan Express + TypeScript
-- membangun autentikasi user
-- menambahkan validasi dan error handling
-- mengintegrasikan database
-- menambahkan testing dan deployment
+- TypeScript strict typing
+- clean architecture
+- validasi input backend
+- autentikasi JWT
+- CRUD berbasis database relasional
 
 ## Penulis
 
@@ -107,5 +156,5 @@ Project ini bukan project komersial, melainkan project pembelajaran personal say
 
 ---
 
-Repository ini dibuat untuk proses belajar dan eksplorasi TypeScript secara nyata dalam sebuah aplikasi backend.
+Repository ini terus dikembangkan sebagai project belajar yang fokus pada aplikasi backend modern dengan TypeScript dan Express.
 

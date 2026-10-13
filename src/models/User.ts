@@ -1,4 +1,4 @@
-import { PublicUser } from "../types/UserTypes.js";
+import type { PublicUser } from '../types/UserTypes.js';
 
 export class User {
     constructor(
